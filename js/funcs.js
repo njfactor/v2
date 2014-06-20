@@ -25,9 +25,9 @@ function remove_object()
 
 
 //to splice the information
-function splitter(qty)
+function splitter(qty,rawData)
 {
-	var info=info.getElementById('rawCode').value;
+	var info=rawData;
 
 	details=info.split(",");
 	
