@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Initial cart structure</title>
+
+</head>
+<body>
+<a href=""><button type = "button" > add </button></a>
+<button type = "button" onclick="removefunc()"> remove </button>
+<a href=""><button type = "button"> finish </button></a>
+<script>
+function removefunc(){
+
+
+}
+</script>
+<table  style="border-collapse: collapse">
+<thead>
+<tr style="border-bottom: 2px solid black">
+<th colspan="5"> Billing Cart </th>
+</tr>
+<tr>
+<th> </th>
+</tr>
+<tr style="border-left: 1px solid black">
+<th> Sr no. </th>
+<th> Product details</th>
+<th> Quantity </th>
+<th> Price </th>
+<th> Expiry Date</th>
+</tr>
+</thead>
+<tbody style="border-left: 1px solid black;padding: 5px" id="myTable">
+<tr>
+<td></td>
+<td></td>
+<td></td> 
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div align="center" style="background-color:black;padding-left: 50px">
+<h2 style="color: white" id="totaldet"></h2> 
+</div>
+
+
+<script type="text/javascript">
+var details=new Array();
+var table = document.getElementById("myTable");
+ var rows=table.getElementsBTagName('tr');
+ var rowCount = rows.length;
+ var allProducts = new Array();
+ var totalcost=0;
+
+function splitter(info)
+{
+var details=new Array();
+ details=info.split(",");
+ }
+ function addEntry()
+ {
+   var row = table.insertRow(rowCount+1)
+ 
+ var data0= row.insertCell(0);
+ var data1 = row.insertCell(1);
+ var data2 = row.insertCell(2);
+ var data3 = row.insertCell(3);
+ var data4= row.insertCell(4);
+ var data5= row.insertCell(5);
+ 
+ 
+ data0.innerHTML = rowCount;
+ data1.innerHTML =  details[0];
+ data2.innerHTML = details[1];
+ data3.innerHTML = details[2];
+ data4.innerHTML = details[3];
+ 
+ var btn = data5.createElement["BUTTON"];
+ var t =data5.createTextNode("Delete this item");
+ btn.appendChild(t);
+ data5.body.appendChild(btn);
+ }
+ function pushDetails()
+ {
+ allProducts.push(details);
+ }
+ function totalCost()
+ {
+  totalcost= totalcost + details[2];
+  document.getElementById("totaldet").innerHTML = "Total cost: " +totalcost;
+  }
+ function removeDetails()
+ {
+ details.pop();
+ details.pop();
+ details.pop();
+ details.pop();
+ }
+
+</script>
+</body>
+</html>

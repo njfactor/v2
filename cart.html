@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- This is the cart page.
+Here all your products will be visible. you
+will options to add new products, delete old
+ones and to sort your cart according to
+different parameters.-->
+
+<html>
+<head>
+	<!-- These are for the scanner -->
+	
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+
+	<!-- These are our scripts -->
+	<script type="text/javascript" src="js/funcs.js"></script>
+	
+</head>
+
+<body>
+<div class = "app">
+	<div id="deviceready" class="blink"></div>
+	<p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
+	<button type = "button" onclick="splitter(1)"> remove </button>
+	<a href="paymentPage.html"><button type = "button"> finish </button></a>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="barcodescanner.js"></script>
+	<script type="text/javascript" src="childbrowser.js"></script>
+	<script type="text/javascript" src="js/barcode.js"></script>
+	<script type="text/javascript">app.initialize();</script>
+
+<table  id="myTable" style="border-collapse: collapse">
+	<thead>
+		<tr style="border-bottom: 2px solid black">
+			<th colspan="5"> Billing Cart </th>
+		</tr>
+		<tr style="border-left: 1px solid black">
+			<th>Sr no.</th>
+			<th>Product details</th>
+			<th>Quantity</th>
+			<th>Price</th>
+			<th>Expiry Date</th>
+		</tr>
+	</thead>
+<tbody style="border-left: 1px solid black;padding: 5px" id="myTable"></tbody>
+</table>
+<p id="rawCode"></p>
+<script>
+var qrcode;
+var details=[];//temporary array to hold the info properties in string form 
+
+var total_price=0;//total to be paid
+
+
+var cart=[];//array of objects;
+
+
+var cart_top=0;//same as sr no.
+
+</script>
+</body>
+</html>
