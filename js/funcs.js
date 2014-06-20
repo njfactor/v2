@@ -1,5 +1,5 @@
 //Constructor for product class
-function product(SrNo,pdName,pdId,pdPrice,dtMfg,dtExp)
+function product(SrNo,pdName,pdId,pdPrice,dtMfg,dtExp,qty)
 {   
     this.SrNo=SrNo;
 	this.pdName = pdName;
@@ -7,6 +7,7 @@ function product(SrNo,pdName,pdId,pdPrice,dtMfg,dtExp)
 	this.pdPrice = pdPrice;
 	this.dtMfg = dtMfg;
 	this.dtExp = dtExp;
+	this.qty=qty;
 	
     this.remove_item=remove_object;	
 }
@@ -28,7 +29,7 @@ function remove_object()
 function splitter(qty,rawData)
 {
 	var info=rawData;
-
+    
 	details=info.split(",");
 	
 	cart_top = cart_top +1; //same as serial number
@@ -45,11 +46,9 @@ function create_object(cart_top,dname,pdid,price,dtmfg,dtexp,qty)
 	price=convert(price);
 
 	total_price+=calc(price,qty);//total to be paid
-	
-	
+		
 	var tempprod=new product(cart_top,dname,pdid,price,dtmfg,dtexp);
 	
-
 	cart.push(tempprod);
 }
 //end
@@ -62,18 +61,18 @@ function addEntry()
 	var rowCount = rows.length;
 	var row = table.insertRow(rowCount)
  
-	var data0= row.insertCell(0);
+	var data0 = row.insertCell(0);
 	var data1 = row.insertCell(1);
 	var data2 = row.insertCell(2);
 	var data3 = row.insertCell(3);
 	var data4= row.insertCell(4);
 	var data5= row.insertCell(5);
  	
-	data0.innerHTML = rowCount-1;
-	data1.innerHTML = cart[0].pdName;
-	data2.innerHTML = cart[0].pdId;
-	data3.innerHTML = cart[0].pdPrice;
-	data4.innerHTML = cart[0].dtMfg;
+	data0.innerHTML = cart[rowcount-2].SrNo;
+	data1.innerHTML = cart[rowcount-2].pdName;
+	data2.innerHTML = cart[rowcount-2].pdId;
+	data3.innerHTML = cart[rowcount-2].pdPrice;
+	data4.innerHTML = cart[rowcount-2].dtMfg;
  
 	/* var btn = data5.createElement["BUTTON"];
 	var t =data5.createTextNode("Delete this item");
